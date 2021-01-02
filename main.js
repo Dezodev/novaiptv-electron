@@ -10,6 +10,7 @@ function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 1000,
         height: 562.50,
+        backgroundColor:'#FFF',
         show: false,
         webPreferences: {
             nodeIntegration: true,
@@ -30,6 +31,11 @@ function createMainWindow() {
         });
 
     mainWindow.loadURL(indexPath);
+
+    // Open the DevTools.
+    if (isDev) {
+        mainWindow.webContents.openDevTools()
+    }
 
     mainWindow.once("ready-to-show", () => {
         mainWindow.show();
