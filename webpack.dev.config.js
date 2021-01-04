@@ -21,8 +21,11 @@ module.exports = {
                 ],
             },
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx|mjs)$/,
                 use: [{ loader: "babel-loader" }],
+                resolve: {
+                    fullySpecified: false
+                }
             },
             {
                 test: /\.(jpe?g|png|gif)$/,
